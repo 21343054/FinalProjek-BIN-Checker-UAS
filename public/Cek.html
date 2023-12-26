@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CEK INFO REKENING</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-header">
+        <h1>CEK INFO REKENING</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Cek Info</a></li>
+            <li><a href="riwayat.html">Lihat Riwayat</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container-tabel">
+      <h1>Cek Nomor Rekening</h1>
+      <input type="text" id="binInput" placeholder="Masukkan 6 Angka No. Rek" />
+      <button onclick="checkBIN()">Telusuri</button>
+      <div id="result" class="result-container">
+        <table id="resultTable" class="result-table">
+          <thead>
+            <tr>
+              <th>Kategori</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody">
+            <!-- Hasil akan ditampilkan di sini -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="footer2">
+      <!-- Tulisan footer -->
+      <p>
+        &copy;
+        <?php echo date("Y"); ?>
+        Maulana Hafizul Haq
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

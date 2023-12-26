@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DCEK INFO REKENING</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-header">
+        <h1>CEK INFO REKENING</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Cek.html">Cek Info</a></li>
+            <li><a href="riwayat.html">Lihat Riwayat</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1>Riwayat Pencarian</h1>
+    <table id="binData">
+      <thead>
+        <tr>
+          <th>No.Rekening</th>
+          <th>Nama Bank</th>
+          <th>Tipe Kartu</th>
+          <th>Negara</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody id="binData">
+        <!-- Data dari MongoDB akan ditampilkan di sini -->
+      </tbody>
+    </table>
+
+    <script>
+      fetch("/data-bin")
+        .then((response) => response.json())
+        .then((data) => {
+          const binDataBody = document.getElementById("binData");
+
+          // Loop melalui data dari MongoDB
+          data.forEach((bin) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td>${bin.bin}</td>
+            <td>${bin.bank_name}</td>
+            <td>${bin.type}</td>
+            <td>${bin.country}</td>
+            <td>${bin.url}</td>
+            
+          `;
+            binDataBody.appendChild(row);
+          });
+        })
+        .catch((error) => console.error("Error:", error));
+    </script>
+  </body>
+</html>
